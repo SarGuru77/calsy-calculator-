@@ -77,11 +77,20 @@ body.dark-mode {
     background-color: rgb(20, 20, 20);
     color: white;
 }
+.mode.light-mode{
+        background-color: rgb(20, 20, 20);
+        color:white;
+}
 .mode button{
+    height: 50px;
+    width: 70px;
     margin-top: 0vh;
     align-items: start;
     margin-bottom: 90vh;
     margin-right: 50vh;
+    border-radius: 50%;
+    text-align: center;
+    border: none;
   
 }
 
