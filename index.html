@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calsy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+
+    <div class="container">
+          <div class="mode">
+        <button id="mode">
+           change mode
+        </button>
+    </div> 
+        <div class="display">
+            <input type="text" placeholder="0" id="calsy-screen">
+            <button style="background-color: rgb(255, 87, 87);" onclick="clears()">C</button>
+            <button id="dl" style="background-color: rgb(255, 87, 87);" onclick="del()">Del</button>
+            <button   style="background-color: rgb(129, 70, 185);" onclick="display('%')">%</button>
+            <button style="background-color: rgb(129, 70, 185);"  onclick="display('()')">()</button>
+            <button    onclick="display(7)">7</button>
+            <button    onclick="display(8)">8</button>
+            <button    onclick="display(9)">9</button>
+            <button style="background-color: rgb(129, 70, 185);"  onclick="display('/')">/</button>
+
+            <button    onclick="display(4)">4</button>
+            <button    onclick="display(5)">5</button>
+            <button    onclick="display(6)">6</button>
+            <button style="background-color: rgb(129, 70, 185);"   onclick="display('*')">x</button>
+
+            <button    onclick="display(1)">1</button>
+            <button    onclick="display(2)">2</button>
+            <button    onclick="display(3)">3</button>
+             <button style="background-color: rgb(129, 70, 185);"   onclick="display('-')">-</button>
+
+             <button onclick="display('0')">0</button>
+             <button id="equal" onclick="equal()"  style="grid-column:span  ; background-color: rgb(7, 220, 7);">=</button>
+             <br>
+            <button  style="background-color: rgb(129, 70, 185);"  onclick="display('+')">+</button>
+
+</div>
+
+        </div>
+           
+    </div>
+
+    <script>
+        let calsyscreen= document.getElementById("calsy-screen");
+
+        function display(num){
+         
+        calsyscreen.value +=num;
+        }
+       
+      function equal(){
+          
+        try{
+            calsyscreen.value =eval(calsyscreen.value);
+        }
+        catch(error) {
+             calsyscreen.value="";
+        }
+      }
+
+    function clears(){
+
+         calsyscreen.value=""
+    }  
+let d =document.getElementById("dl");
+     function del(){
+
+        calsyscreen.value=calsyscreen.value.slice(0,-1)
+    }
+  d.addEventListener("keydown",(event)=>{
+    if(event.key==="Backspace"){
+                calsyscreen.value=calsyscreen.value.slice(0,-1);
+
+    }
+    
+});
+        
+   calsyscreen.addEventListener("keydown",(event)=>{
+    if(event.key==="Backspace"){
+        del();
+    }
+});
+   calsyscreen.addEventListener("keydown",(event)=>{
+            
+        if(event.key==="Enter"){
+            calsyscreen.value= equal();
+        }
+      
+     if (event.key==="five"){
+        display(5);
+     }
+
+   });
+
+
+ let mode = document.getElementById("mode");
+let body = document.body;
+
+mode.addEventListener("click", () => {
+    body.classList.toggle("dark-mode");
+});
+    </script>
+</body>
+</html>
